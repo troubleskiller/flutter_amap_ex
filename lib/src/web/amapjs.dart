@@ -131,6 +131,7 @@ class MarkerOptions {
 
   external LngLat get position;
   external set position(LngLat v);
+  external on(String eventName, void Function(MapsEvent event) callback);
 }
 
 @JS()

@@ -76,6 +76,22 @@ class AMap2DWebController extends AMap2DController {
   }
 
   @override
+  Future<void> addMulti(List<LngLat> lngLats) async {
+    for(final LngLat lngLat in lngLats){
+      _aMap.add(Marker(MarkerOptions( position: lngLat,
+          icon: AMapIcon(IconOptions(
+            size: Size(26, 34),
+            imageSize: Size(26, 34),
+            image: 'https://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
+          )),
+          offset: Pixel(-13, -34),
+          // anchor: 'bottom-center'
+      )));
+    }
+    return Future.value();
+  }
+
+  @override
   Future<void> location() async {
     _geolocation.getCurrentPosition(allowInterop((status, result) {
       if (status == 'complete') {
@@ -134,4 +150,5 @@ class AMap2DWebController extends AMap2DController {
       _widget.onPoiSearched!(list);
     }
   });
+
 }

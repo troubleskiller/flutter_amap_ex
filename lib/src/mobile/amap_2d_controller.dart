@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_2d_amap/flutter_2d_amap.dart';
+import 'package:flutter_2d_amap/src/web/amapjs.dart';
 
 class AMap2DMobileController extends AMap2DController {
   AMap2DMobileController(
@@ -54,5 +55,11 @@ class AMap2DMobileController extends AMap2DController {
   @override
   Future<void> location() async {
     return _channel.invokeMethod('location');
+  }
+
+  @override
+  Future<void> addMulti(List<LngLat> lngLats) {
+    // TODO: implement addMulti
+    throw UnimplementedError();
   }
 }
